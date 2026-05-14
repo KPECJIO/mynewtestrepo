@@ -7,10 +7,9 @@ def eval_expression(a, b, action):
     elif action == '*':
         return a * b
     elif action == '/':
-        if b != 0:
-            return a / b
-        else:
-            return "Ошибка: деление на ноль"
+        if b == 0:
+            raise ZeroDivisionError("Ошибка: деление на ноль")
+        return a / b
     else:
-        return "Ошибка: неизвестное действие"
+        raise ValueError("Ошибка: неизвестное действие")
     

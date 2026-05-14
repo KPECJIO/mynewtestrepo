@@ -5,6 +5,8 @@ def input_expression():
     expression = input("Введите выражение: ")#Получение выражения 
     pattern = r'^(\d+(?:\.\d+)?)\s*([+\-*/])\s*(\d+(?:\.\d+)?)$'
     match = re.match(pattern, expression.strip()) # Деление выражения на переменные
+    if not match:
+        raise ValueError("Неверный формат")
     try:
         a = float(match.group(1)) # Первая переменная
         action = match.group(2) # Оператор
